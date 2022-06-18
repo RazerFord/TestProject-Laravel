@@ -12,7 +12,14 @@ class Product extends Model
      * 
      * @var string
      */
-    protected $table = 'product';
+    protected $table = 'products';
+
+    /**
+     * Properties to allow mass assignment
+     * 
+     * @var array
+     */
+    protected $fillable = ['name', 'price', 'published'];
 
     use HasFactory;
 }

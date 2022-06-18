@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MainControllers\CategoryController;
+use App\Http\Controllers\MainControllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::post('/category', [CategoryController::class, 'store']);
+Route::post('/product', [ProductController::class, 'store']);
