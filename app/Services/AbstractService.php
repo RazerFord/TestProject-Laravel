@@ -4,5 +4,5 @@ namespace App\Services;
 
 abstract class AbstractService
 {
-    protected $repository;
+    public $repository;
 }

@@ -8,12 +8,26 @@ use App\Http\Requests\ProductRequests\ProductUpdate;
 use App\Services\Interfaces\ProductInterface;
 use Illuminate\Http\JsonResponse;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 class ProductController extends BaseController
 {
     public function __construct(ProductInterface $service)
     {
         $this->service = $service;
+    }
+
+    /**
+     * Get products with filters.
+     * 
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function index(Request $request): JsonResponse
+    {
+        $data = $this->service->repository->getCourseByFilter($request)->get()->toArray();
+
+        return $this->successResponse(__('messages.received'), $data, 200);
     }
 
     /**
