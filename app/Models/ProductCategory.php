@@ -9,7 +9,7 @@ class ProductCategory extends Model
 {
     use HasFactory;
 
-    protected $timestamps = true;
+    public $timestamps = true;
 
     /**
      * Name of table.

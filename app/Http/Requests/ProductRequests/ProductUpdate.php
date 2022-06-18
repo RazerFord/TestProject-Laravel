@@ -4,7 +4,7 @@ namespace App\Http\Requests\ProductRequests;
 
 use App\Http\Requests\BaseRequest;
 
-class ProductStore extends BaseRequest
+class ProductUpdate extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,11 @@ class ProductStore extends BaseRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|unique:products,name|min:1',
-            'price' => 'required|numeric|gte:0',
+            'name' => 'string|unique:products,name|min:1',
+            'price' => 'numeric|gte:0',
             'published' => 'nullable|boolean',
-            'categories' => 'required|array|min:2|max:10',
-            'categories.*' => 'required|integer|numeric|distinct|exists:categories,id',
+            'categories' => 'nullable|array|min:2|max:10',
+            'categories.*' => 'integer|numeric|distinct|exists:categories,id',
         ];
     }
 }

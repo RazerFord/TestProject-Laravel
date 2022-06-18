@@ -21,3 +21,5 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::post('/category', [CategoryController::class, 'store']);
 Route::post('/product', [ProductController::class, 'store']);
+
+Route::put('/product/{product}', [ProductController::class, 'update']);

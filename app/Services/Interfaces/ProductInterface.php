@@ -2,6 +2,8 @@
 
 namespace App\Services\Interfaces;
 
+use App\Models\Product;
+
 interface ProductInterface
 {
     /**
@@ -11,4 +13,13 @@ interface ProductInterface
      * @return array $data
      */
     public function storeProduct(array $data): array;
+
+    /**
+     * Update product.
+     * 
+     * @param array $data
+     * @param Product $product
+     * @return void
+     */
+    public function updateProduct(array $data, Product $product): void;
 }

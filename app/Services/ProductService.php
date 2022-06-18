@@ -40,4 +40,31 @@ class ProductService extends AbstractService implements ProductInterface
             throw new ErrorException($e->getMessage(), null, 400);
         }
     }
+
+    /**
+     * Update product.
+     * 
+     * @param array $data
+     * @param Product $product
+     * @return void
+     */
+    public function updateProduct(array $data, Product $product): void
+    {
+        try {
+            DB::beginTransaction();
+
+            $product->update($data);
+
+            if (isset($data['categories'])) {
+                $product->productCategories()->delete();
+                $product->categories()->attach($data['categories']);
+            }
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+
+            throw new ErrorException($e->getMessage(), null, 400);
+        }
+    }
 }
