@@ -22,4 +22,12 @@ class Product extends Model
     protected $fillable = ['name', 'price', 'published'];
 
     use HasFactory;
+
+    /**
+     * Return categories.
+     */
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'product_categories')->withTimestamps();
+    }
 }

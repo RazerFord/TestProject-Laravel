@@ -27,8 +27,8 @@ class ProductStore extends BaseRequest
             'name' => 'required|string|unique:products,name',
             'price' => 'required|numeric|gte:0',
             'published' => 'nullable|boolean',
-            'categories' => 'nullable|array',
-            'categories.*' => 'integer|numeric|unique|exists:categories,id',
+            'categories' => 'nullable|array|min:2|max:10',
+            'categories.*' => 'integer|numeric|distinct|exists:categories,id',
         ];
     }
 }

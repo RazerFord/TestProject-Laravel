@@ -22,4 +22,12 @@ class Category extends Model
     protected $fillable = ['name'];
 
     use HasFactory;
+
+    /**
+     * Return products.
+     */
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'product_categories');
+    }
 }

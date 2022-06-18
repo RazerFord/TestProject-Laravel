@@ -28,6 +28,8 @@ class CategoryController extends BaseController
 
         $category = Category::create($data);
 
-        return $this->successResponse(__('messages.created'), (new CategoryResource($category))->toArray($request), 201);
+        $category = (new CategoryResource($category))->toArray($request);
+
+        return $this->successResponse(__('messages.created'), $category, 201);
     }
 }

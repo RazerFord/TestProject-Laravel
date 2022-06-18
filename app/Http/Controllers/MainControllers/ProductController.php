@@ -25,8 +25,8 @@ class ProductController extends BaseController
     {
         $data = $request->validated();
 
-        $product = Product::create($data);
-        dd($product);
-        return $this->successResponse(__('messages.created'), $product->toArray(), 201);
+        $product = $this->service->storeProduct($data);
+
+        return $this->successResponse(__('messages.created'), $product, 201);
     }
 }
