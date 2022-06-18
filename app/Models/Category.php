@@ -30,4 +30,17 @@ class Category extends Model
     {
         return $this->belongsToMany(Product::class, 'product_categories');
     }
+
+    /**
+     * Return product_categories.
+     */
+    public function productCategories()
+    {
+        return $this->hasMany(ProductCategory::class);
+    }
+
+    public function hasProducts()
+    {
+        return $this->productCategories()->count() !== 0;
+    }
 }

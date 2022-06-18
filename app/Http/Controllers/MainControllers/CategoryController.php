@@ -32,4 +32,17 @@ class CategoryController extends BaseController
 
         return $this->successResponse(__('messages.created'), $category, 201);
     }
+
+    /**
+     * Delete category.
+     * 
+     * @param Category $category
+     * @return JsonResponse
+     */
+    public function delete(Category $category): JsonResponse
+    {
+        $this->service->delete($category);
+
+        return $this->successResponse(__('messages.deleted'), null, 200);
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -41,6 +42,12 @@ class RouteServiceProvider extends ServiceProvider
         Route::bind('product', function ($value) {
             if (ctype_digit($value)) {
                 return Product::findOrFail($value);
+            }
+        });
+
+        Route::bind('category', function ($value) {
+            if (ctype_digit($value)) {
+                return Category::findOrFail($value);
             }
         });
     }

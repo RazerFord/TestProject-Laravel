@@ -35,7 +35,7 @@ class Product extends Model
     }
 
     /**
-     * Return categories.
+     * Return product_categories.
      */
     public function productCategories()
     {
