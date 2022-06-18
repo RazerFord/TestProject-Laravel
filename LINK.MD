@@ -1,1 +1,2 @@
-[*Ссылка на коллекцию Postman*](https://app.getpostman.com/join-team?invite_code=cd714ff6595c3d8ea9b1264a710b6b65&ws=3c4c8226-9032-43e2-a54b-4cae516927dd)
+- [*Ссылка на документацию 1*](https://documenter.getpostman.com/view/18364124/UzBmLmwM)
+- [*Ссылка на документацию 2*](https://documenter.getpostman.com/view/18364124/UzBmLmwN)
