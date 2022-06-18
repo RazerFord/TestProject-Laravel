@@ -7,13 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-        /**
+    /**
      * Name of table.
      * 
      * @var string
      */
     protected $table = 'categories';
 
+    /**
+     * Properties to allow mass assignment
+     * 
+     * @var array
+     */
+    protected $fillable = ['name'];
 
     use HasFactory;
 }
