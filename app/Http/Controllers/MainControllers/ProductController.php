@@ -35,14 +35,28 @@ class ProductController extends BaseController
      * Update product.
      * 
      * @param ProductUpdate $request
+     * @param Product $product
      * @return JsonResponse
      */
     public function update(ProductUpdate $request, Product $product): JsonResponse
     {
         $data = $request->validated();
 
-        $product = $this->service->updateProduct($data, $product);
+        $this->service->updateProduct($data, $product);
 
-        return $this->successResponse(__('messages.updated'), $product, 200);
+        return $this->successResponse(__('messages.updated'), null, 200);
+    }
+
+    /**
+     * Delete product.
+     * 
+     * @param Product $request
+     * @return JsonResponse
+     */
+    public function delete(Product $product): JsonResponse
+    {
+        $product->delete();
+
+        return $this->successResponse(__('messages.deleted'), null, 200);
     }
 }

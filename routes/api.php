@@ -23,3 +23,5 @@ Route::post('/category', [CategoryController::class, 'store']);
 Route::post('/product', [ProductController::class, 'store']);
 
 Route::put('/product/{product}', [ProductController::class, 'update']);
+
+Route::delete('/product/{product}', [ProductController::class, 'delete']);
